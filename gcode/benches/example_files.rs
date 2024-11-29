@@ -1,8 +1,6 @@
-#![feature(test)]
-
-extern crate test;
-
-use test::Bencher;
+// extern crate test;
+// 
+// use test::Bencher;
 
 macro_rules! bench {
     ($name:ident) => {
@@ -21,7 +19,7 @@ macro_rules! bench {
     };
 }
 
-bench!(program_1);
-bench!(program_2);
-bench!(program_3);
-bench!(PI_octcat);
+// bench!(program_1);
+// bench!(program_2);
+// bench!(program_3);
+// bench!(PI_octcat);
