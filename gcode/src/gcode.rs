@@ -21,7 +21,8 @@ pub enum Mnemonic {
     ProgramNumber,
     /// Tool selection.
     ToolChange,
-    /// Defines speed, either spindle speed or surface speed depending on mode
+
+    /// Speed.
     Speed,
 }
 
@@ -41,7 +42,6 @@ impl Mnemonic {
             'm' => Some(Mnemonic::Miscellaneous),
             'o' => Some(Mnemonic::ProgramNumber),
             't' => Some(Mnemonic::ToolChange),
-            's' => Some(Mnemonic::Speed),
             _ => None,
         }
     }

@@ -67,6 +67,10 @@ impl<'input, B: Buffers<'input>> Line<'input, B> {
         &mut self,
         gcode: GCode<B::Arguments>,
     ) -> Result<(), CapacityError<GCode<B::Arguments>>> {
+        // M3 M4 需要有激光功率
+        if gcode.to_string().trim() == "M3" || gcode.to_string().trim() == "M4" {
+            return Ok(());
+        }
         // Note: We need to make sure a failed push doesn't change our span
         let span = self.span.merge(gcode.span());
         self.gcodes.try_push(gcode)?;

@@ -126,6 +126,7 @@ where
         temp_gcode: &mut Option<GCode<B::Arguments>>,
     ) {
         if let Some(mnemonic) = Mnemonic::for_letter(word.letter) {
+
             // we need to start another gcode. push the one we were building
             // onto the line so we can start working on the next one
             self.last_gcode_type = Some(word);
