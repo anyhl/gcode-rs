@@ -196,7 +196,7 @@ pub use crate::{
     comment::Comment,
     gcode::{GCode, Mnemonic},
     line::Line,
-    parser::{full_parse_with_callbacks, parse, Parser},
+    parser::{full_parse_with_callbacks, parse, parse_with_comments, Parser},
     span::Span,
     words::Word,
 };

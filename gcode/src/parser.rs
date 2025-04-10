@@ -16,6 +16,16 @@ pub fn parse<'input>(src: &'input str) -> impl Iterator<Item = GCode> + 'input {
     full_parse_with_callbacks(src, Nop).flat_map(|line| line.into_gcodes())
 }
 
+/// Parse each [`GCode`] in some text, ignoring any errors that may occur or
+/// [`Comment`]s that are found.
+///
+/// This function is probably what you are looking for if you just want to read
+/// the [`GCode`] commands in a program. If more detailed information is needed,
+/// have a look at [`full_parse_with_callbacks()`].
+pub fn parse_with_comments<'input>(src: &'input str) -> impl Iterator<Item = Line<'input>> + 'input {
+    full_parse_with_callbacks(src, Nop)
+}
+
 /// Parse each [`Line`] in some text, using the provided [`Callbacks`] when a
 /// parse error occurs that we can recover from.
 ///
